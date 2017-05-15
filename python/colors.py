@@ -8,6 +8,21 @@ class Print:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
+    
+    @staticmethod
+    def conditional(msg, result, ret=None):
+		"""
+		Prints or returns a red error message or a green success message based on a condition
+		Keyword arguments:
+		msg: the message
+		result: the condition
+		ret: boolean, if true returns the string instead of printing it
+		"""		
+		m = Print.success(msg, True) if result else Print.error(msg, True)
+		if ret: 
+			return m
+		else:
+			print m
 
     @staticmethod
     def error(msg, ret=None):
